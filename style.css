@@ -1,0 +1,254 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Georgia, serif;
+    background: #fffaf8;
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 70% 45%, #ffd8e2 0%, transparent 25%),
+        linear-gradient(120deg, #fffdfc, #fff5f7);
+}
+
+/* First screen */
+
+.top-text {
+    position: absolute;
+    top: 17%;
+    right: 25%;
+    color: #a77b85;
+    font-size: 18px;
+    opacity: 0;
+    animation: showTop 2s forwards;
+}
+
+.intro-heart {
+    position: absolute;
+    top: 24%;
+    right: 28%;
+    color: #f25b8d;
+    font-size: 110px;
+    filter: drop-shadow(0 10px 20px #f3a7bd);
+    animation: heartIntro 3s forwards;
+}
+
+@keyframes showTop {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heartIntro {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    30% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+    75% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Tree */
+
+.tree {
+    position: absolute;
+    width: 450px;
+    height: 600px;
+    right: 10%;
+    bottom: 3%;
+}
+
+.trunk {
+    position: absolute;
+    width: 18px;
+    height: 280px;
+    bottom: 0;
+    left: 52%;
+    background: #3c2528;
+    border-radius: 10px;
+    transform-origin: bottom;
+    animation: growTree 3s 2s forwards;
+    transform: scaleY(0);
+}
+
+@keyframes growTree {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.branch {
+    position: absolute;
+    width: 10px;
+    height: 230px;
+    background: #3c2528;
+    transform-origin: bottom;
+    bottom: 230px;
+    left: 53%;
+    border-radius: 10px;
+    opacity: 0;
+    animation: branches 2s 4s forwards;
+}
+
+.b1 {
+    transform: rotate(-35deg);
+}
+
+.b2 {
+    transform: rotate(35deg);
+}
+
+.b3 {
+    height: 170px;
+    transform: rotate(-55deg);
+}
+
+.b4 {
+    height: 170px;
+    transform: rotate(55deg);
+}
+
+.b5 {
+    height: 130px;
+    transform: rotate(5deg);
+}
+
+@keyframes branches {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Small hearts */
+
+.heart {
+    position: absolute;
+    color: #f4779d;
+    font-size: 25px;
+    animation: bloom 1s forwards;
+    opacity: 0;
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Birthday message */
+
+.message {
+    position: absolute;
+    left: 5%;
+    bottom: 17%;
+    opacity: 0;
+    animation: messageShow 2s 5s forwards;
+}
+
+.small-text {
+    color: #b04d72;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(55px, 8vw, 110px);
+    color: #bd426c;
+    font-style: italic;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+p {
+    color: #9b777e;
+    font-size: 18px;
+}
+
+@keyframes messageShow {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Falling hearts */
+
+.falling-heart {
+    position: absolute;
+    top: -30px;
+    color: #f28aaa;
+    font-size: 20px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .tree {
+        width: 300px;
+        right: -20px;
+        bottom: 5%;
+        transform: scale(.8);
+    }
+
+    .message {
+        left: 5%;
+        bottom: 10%;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    .small-text {
+        font-size: 15px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
